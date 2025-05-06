@@ -6,12 +6,12 @@ public class WeatherData{
   public WeatherData(ArrayList<Double> temperatures){
     this.temperatures = temperatures;
   }*/
-  public void cleanData(double lower,double upper){
+  public void cleanData(double lower,double upper){//a
     for(int i =0;i < temperatures.size();i++){
       if(temperatures.get(i)<lower || temperatures.get(i)>upper) temperatures.remove(i);
     }
   }
-  public int longestHeatWave(double threshold){
+  public int longestHeatWave(double threshold){//b
     int c = 1;
     int max = 0;
     for(int i = 0; i < temperatures.size() -1 ;i++){
