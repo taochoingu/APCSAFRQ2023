@@ -2,8 +2,8 @@ import java.util.*;
 import java.util.ArrayList;
 
 public class WeatherData{
-  /*private ArrayList<Double> temperatures;
-  public WeatherData(ArrayList<Double> temperatures){
+  private ArrayList<Double> temperatures;
+  /*public WeatherData(ArrayList<Double> temperatures){
     this.temperatures = temperatures;
   }*/
   public void cleanData(double lower,double upper){//a
@@ -11,16 +11,21 @@ public class WeatherData{
       if(temperatures.get(i)<lower || temperatures.get(i)>upper) temperatures.remove(i);
     }
   }
-  public int longestHeatWave(double threshold){//b
-    int c = 1;
+public int longestHeatWave(double threshold) {//b
+    int c = 0;
     int max = 0;
-    for(int i = 0; i < temperatures.size() -1 ;i++){
-      if(temperatures.get(i)>= threshold && temperatures.get(i+1)>= threshold) c++;
-      else c = 1;
-      if(c >= max ) max = c;
+    for (int i = 0; i < temperatures.size(); i++) {
+        if (temperatures.get(i) > threshold) {
+            c++;
+            if (c > max) {
+                max = c;
+            }
+        } else {
+            c = 0;
+        }
     }
     return max;
-  }
+}
   /*public ArrayList<Double> getTemp(){
     return temperatures;
   }
